@@ -1,0 +1,157 @@
+{
+  "events": [
+    {
+      "id": "event-daniel-birthday",
+      "slug": "daniel-birthday",
+      "title": {
+        "he": "יום הולדת דניאל",
+        "en": "Daniel's Birthday"
+      },
+      "description": {
+        "he": "מוזמנים כל הורי הכיתה. נשמח לאישור הגעה עד 12.3",
+        "en": "All class parents are invited. Please confirm attendance by Mar 12."
+      },
+      "category": {
+        "he": "יום הולדת",
+        "en": "Birthday"
+      },
+      "subtype": {
+        "he": "גיל 3",
+        "en": "Age 3"
+      },
+      "eventAt": "2026-03-15T17:00:00.000Z",
+      "location": {
+        "he": "ג'ימבורי עננים, ראשון לציון",
+        "en": "Clouds Play Gym, Rishon LeZion"
+      },
+      "mapsUrl": "https://maps.google.com",
+      "isPublic": true,
+      "accessCode": "",
+      "attendance": {
+        "confirmed": 31,
+        "declined": 8,
+        "maybe": 6,
+        "capacity": 50,
+        "checkedIn": 17
+      },
+      "checklist": [
+        "לאשר עיצוב הזמנה",
+        "לסגור מפעיל או ספק ראשי",
+        "להכין שילוט QR לצ'ק-אין",
+        "להוסיף המלצות אחרי האירוע"
+      ],
+      "bringList": [
+        {
+          "item": "פיתות ללא גלוטן",
+          "owner": "תמר"
+        },
+        {
+          "item": "פירות חתוכים",
+          "owner": "משפחת לוי"
+        },
+        {
+          "item": "כוסות",
+          "owner": "פתוח"
+        }
+      ]
+    },
+    {
+      "id": "event-product-happy-hour",
+      "slug": "product-happy-hour",
+      "title": {
+        "he": "Happy Hour מוצר",
+        "en": "Product Happy Hour"
+      },
+      "description": {
+        "he": "מפגש צוות ערב עם מוזיקה קלה ונשנושים.",
+        "en": "An evening team gathering with light music and snacks."
+      },
+      "category": {
+        "he": "אירוע פנימי",
+        "en": "Internal event"
+      },
+      "subtype": {
+        "he": "צוות מוצר",
+        "en": "Product team"
+      },
+      "eventAt": "2026-03-21T19:30:00.000Z",
+      "location": {
+        "he": "טרסה 18, תל אביב",
+        "en": "Terrace 18, Tel Aviv"
+      },
+      "mapsUrl": "https://maps.google.com",
+      "isPublic": false,
+      "accessCode": "1830",
+      "attendance": {
+        "confirmed": 22,
+        "declined": 4,
+        "maybe": 5,
+        "capacity": 35,
+        "checkedIn": 0
+      },
+      "checklist": [
+        "לסגור מוזיקה",
+        "לאשר רשימת משקאות",
+        "להעלות קוד גישה"
+      ],
+      "bringList": [
+        {
+          "item": "קינוחים",
+          "owner": "Office Ops"
+        },
+        {
+          "item": "צילום",
+          "owner": "פתוח"
+        }
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "rec-clouds-gym",
+      "title": {
+        "he": "ג'ימבורי עננים",
+        "en": "Clouds Play Gym"
+      },
+      "category": {
+        "he": "יום הולדת · גיל 3",
+        "en": "Birthday · Age 3"
+      },
+      "location": {
+        "he": "ראשון לציון",
+        "en": "Rishon LeZion"
+      },
+      "budget": {
+        "he": "4,500-6,000 ₪",
+        "en": "₪4,500-6,000"
+      },
+      "note": {
+        "he": "מקום סגור, ממוזג וקל להורים. מתאים במיוחד כשרוצים להפיק אירוע פשוט יחסית.",
+        "en": "Indoor, air-conditioned, and easy for parents. Strong fit when you want a lighter production load."
+      }
+    },
+    {
+      "id": "rec-terrace-18",
+      "title": {
+        "he": "טרסה 18",
+        "en": "Terrace 18"
+      },
+      "category": {
+        "he": "מסיבת גיוס · בן 18",
+        "en": "Enlistment party · Age 18"
+      },
+      "location": {
+        "he": "מרכז",
+        "en": "Central district"
+      },
+      "budget": {
+        "he": "8,000-12,000 ₪",
+        "en": "₪8,000-12,000"
+      },
+      "note": {
+        "he": "טוב לאירוע ערב עם מוזיקה ותאורה, ופחות מתאים לאירועי ילדים.",
+        "en": "Better for evening celebrations with music and lighting, not for children-focused events."
+      }
+    }
+  ]
+}
