@@ -1,16 +1,14 @@
 import Link from "next/link";
 import {
+  CheckCircle2,
   MessageCircleMore,
   QrCode,
   ScanLine,
   Send,
-  Sparkles,
-  UsersRound,
 } from "lucide-react";
 
-import { AppShell, QuickStatus, SectionTitle, Surface } from "@/components/app-shell";
+import { AppShell, SectionTitle, Surface } from "@/components/app-shell";
 import { PlanningBoard } from "@/components/planning-board";
-import { RemotionPreview } from "@/components/remotion-preview";
 import { type Locale, getCopy } from "@/lib/site-content";
 
 function route(locale: Locale, path: string) {
@@ -24,99 +22,67 @@ export function CreateScreen({ locale }: { locale: Locale }) {
   return (
     <AppShell locale={locale} dir={copy.dir} nav={copy.nav}>
       <section className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
-        <Surface className="panel-soft dashboard-hero">
-          <div className="dashboard-badge">
-            <Sparkles className="h-4 w-4" />
-            {isEnglish ? "Create flow" : "מסלול יצירה"}
+        <Surface className="app-panel app-panel-primary">
+          <div className="app-panel-head">
+            <div>
+              <div className="app-kicker">{isEnglish ? "Create event" : "יצירת אירוע"}</div>
+              <h1 className="app-title">
+                {isEnglish ? "Set up the event in three short parts" : "מגדירים את האירוע בשלושה חלקים קצרים"}
+              </h1>
+            </div>
+            <div className="status-pill">
+              {isEnglish ? "Draft mode" : "טיוטה"}
+            </div>
           </div>
 
-          <div className="dashboard-hero-grid">
-            <div className="space-y-5">
-              <SectionTitle
-                eyebrow={isEnglish ? "Step by step" : "שלב אחרי שלב"}
-                title={
-                  isEnglish
-                    ? "Build the event like a guided checklist"
-                    : "לבנות את האירוע כמו צ'קליסט מודרך"
-                }
-                subtitle={
-                  isEnglish
-                    ? "The form stays simple: first the event basics, then the two planning lists, then sharing."
-                    : "הטופס נשאר פשוט: קודם פרטי האירוע, אחר כך שתי רשימות התכנון, ואז שיתוף."
-                }
-              />
-
-              <div className="readiness-rail">
-                {copy.create.steps.map((step, index) => (
-                  <div
-                    key={step}
-                    className={`readiness-step ${index === 0 ? "readiness-step-active" : ""}`}
-                  >
-                    <span className="readiness-dot" />
-                    <span>{step}</span>
-                  </div>
-                ))}
+          <div className="grid gap-3 md:grid-cols-3">
+            {copy.create.steps.map((step, index) => (
+              <div key={step} className={`readiness-step ${index === 0 ? "readiness-step-active" : ""}`}>
+                <span className="readiness-dot" />
+                <span>{step}</span>
               </div>
+            ))}
+          </div>
 
-              <div className="grid gap-3 sm:grid-cols-2">
-                <div className="app-score-card">
-                  <div className="section-kicker">
-                    {isEnglish ? "Suggested topic" : "נושא מומלץ"}
-                  </div>
-                  <div className="mt-3 font-display text-3xl text-stone-950">
-                    {isEnglish ? "Birthday · Age 3" : "יום הולדת · גיל 3"}
-                  </div>
-                  <p className="mt-3 text-sm leading-7 text-stone-600">
-                    {isEnglish
-                      ? "Choosing the event type loads a matching bring list and more relevant recommendations."
-                      : "בחירת סוג האירוע טוענת רשימת הבאה מתאימה והמלצות מדויקות יותר."}
-                  </p>
+          <div className="grid gap-4 lg:grid-cols-2">
+            <div className="app-score-card">
+              <div className="app-kicker">{isEnglish ? "What you fill in" : "מה ממלאים"}</div>
+              <div className="compact-list mt-4">
+                <div className="compact-row">
+                  <CheckCircle2 className="h-4 w-4 text-amber-700" />
+                  <span>{isEnglish ? "Event name and date" : "שם ותאריך"}</span>
                 </div>
-
-                <div className="app-next-card">
-                  <div className="section-kicker">
-                    {isEnglish ? "Share outcome" : "בסוף התהליך"}
-                  </div>
-                  <div className="mt-3 text-xl font-semibold text-stone-950">
-                    {isEnglish ? "You get one clean event link" : "מקבלים לינק אירוע נקי אחד"}
-                  </div>
-                  <p className="mt-2 text-sm leading-7 text-stone-600">
-                    {isEnglish
-                      ? "Send via WhatsApp, copy it, or show a QR code on the spot."
-                      : "שולחים בוואטסאפ, מעתיקים, או מציגים QR במקום."}
-                  </p>
+                <div className="compact-row">
+                  <CheckCircle2 className="h-4 w-4 text-amber-700" />
+                  <span>{isEnglish ? "Place and event type" : "מקום וסוג אירוע"}</span>
+                </div>
+                <div className="compact-row">
+                  <CheckCircle2 className="h-4 w-4 text-amber-700" />
+                  <span>{isEnglish ? "Private tasks and bring list" : "משימות פנימיות ורשימת הבאה"}</span>
                 </div>
               </div>
             </div>
 
-            <div className="grid gap-4">
-              <Surface className="motion-panel">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <div className="section-kicker">
-                      {isEnglish ? "Motion" : "תצוגת motion"}
-                    </div>
-                    <div className="mt-2 text-lg font-semibold text-stone-950">
-                      {isEnglish ? "Event setup pulse" : "Pulse של תהליך ההקמה"}
-                    </div>
-                  </div>
-                  <div className="motion-badge">Remotion</div>
-                </div>
-                <div className="mt-4">
-                  <RemotionPreview locale={locale} />
-                </div>
-              </Surface>
-
-              <Surface className="night-panel">
-                <div className="section-kicker text-amber-300">
-                  {isEnglish ? "Why split the lists?" : "למה לפצל רשימות?"}
-                </div>
-                <p className="mt-4 text-sm leading-7 text-stone-300">
-                  {isEnglish
-                    ? "Because private organizer work and guest-facing items are different jobs. Keeping them apart makes the app easier on first use."
-                    : "כי משימות פנימיות של מארגן ומה שהאורחים מביאים הם שני דברים שונים. ההפרדה הזאת הופכת את האפליקציה לברורה כבר בכניסה הראשונה."}
-                </p>
-              </Surface>
+            <div className="app-next-card">
+              <div className="app-kicker">{isEnglish ? "At the end" : "בסיום"}</div>
+              <div className="next-task-title">
+                {isEnglish ? "You get one link to share" : "מקבלים לינק אחד לשיתוף"}
+              </div>
+              <p className="next-task-copy">
+                {isEnglish
+                  ? "Use WhatsApp, copy link, or QR. No need to explain the flow to every guest."
+                  : "שולחים בוואטסאפ, מעתיקים לינק או QR. לא צריך להסביר לכל אורח איך זה עובד."}
+              </p>
+              <div className="next-task-actions">
+                <button className="app-cta app-cta-secondary" type="button">
+                  <MessageCircleMore className="h-4 w-4" />
+                  WhatsApp
+                </button>
+                <button className="app-cta app-cta-secondary" type="button">
+                  <QrCode className="h-4 w-4" />
+                  QR
+                </button>
+              </div>
             </div>
           </div>
         </Surface>
@@ -148,95 +114,56 @@ export function OrganizerScreen({ locale }: { locale: Locale }) {
   return (
     <AppShell locale={locale} dir={copy.dir} nav={copy.nav}>
       <section className="grid gap-6 xl:grid-cols-[1.08fr_0.92fr]">
-        <Surface className="panel-soft dashboard-hero">
-          <div className="dashboard-badge">
-            <UsersRound className="h-4 w-4" />
-            {isEnglish ? "Organizer board" : "לוח מארגן"}
+        <Surface className="app-panel app-panel-primary">
+          <div className="app-panel-head">
+            <div>
+              <div className="app-kicker">{isEnglish ? "Organizer board" : "לוח מארגן"}</div>
+              <h1 className="app-title">
+                {isEnglish ? "See what is ready and what is still open" : "רואים מה סגור ומה עדיין פתוח"}
+              </h1>
+            </div>
+            <Link className="pill-action" href={route(locale, "/e/daniel-birthday")}>
+              <Send className="h-4 w-4" />
+              {isEnglish ? "Share link again" : "שלח שוב לינק"}
+            </Link>
           </div>
 
-          <div className="dashboard-hero-grid">
-            <div className="space-y-5">
-              <SectionTitle
-                eyebrow={isEnglish ? "Control room" : "חדר הבקרה"}
-                title={
-                  isEnglish
-                    ? "Keep attendance, tasks, and guest items in one flow"
-                    : "להחזיק אישורי הגעה, משימות ופריטי הבאה בזרימה אחת"
-                }
-                subtitle={
-                  isEnglish
-                    ? "Instead of jumping between chats and notes, the organizer board shows what is ready and what still needs action."
-                    : "במקום לקפוץ בין צ'אטים והערות, לוח המארגן מראה מה סגור ומה עוד דורש פעולה."
-                }
-              />
+          <div className="stats-strip">
+            <div className="stat-chip">
+              <span className="stat-chip-label">{isEnglish ? "Confirmed" : "אישרו"}</span>
+              <span className="stat-chip-value">47</span>
+            </div>
+            <div className="stat-chip">
+              <span className="stat-chip-label">{isEnglish ? "Open items" : "פתוחים"}</span>
+              <span className="stat-chip-value">3</span>
+            </div>
+            <div className="stat-chip">
+              <span className="stat-chip-label">{isEnglish ? "Ready score" : "מוכנות"}</span>
+              <span className="stat-chip-value">82%</span>
+            </div>
+          </div>
 
-              <div className="grid gap-3 md:grid-cols-3">
-                <div className="metric-card">
-                  <div className="text-xs uppercase tracking-[0.24em] text-stone-500">
-                    {isEnglish ? "Confirmed" : "אישרו"}
+          <div className="grid gap-3">
+            {copy.events.map((event) => (
+              <div key={event.title} className="event-tile event-tile-active">
+                <div className="event-tile-main">
+                  <div className="event-tile-title">{event.title}</div>
+                  <div className="event-tile-meta">
+                    <span>{event.date}</span>
+                    <span>{event.mood}</span>
                   </div>
-                  <div className="mt-2 font-display text-3xl text-stone-950">47</div>
                 </div>
-                <div className="metric-card">
-                  <div className="text-xs uppercase tracking-[0.24em] text-stone-500">
-                    {isEnglish ? "Open items" : "פריטים פתוחים"}
+                <div className="event-tile-side">
+                  <div className="status-pill">{event.attendance}</div>
+                  <div className="event-tile-actions">
+                    <Link className="pill-action" href={route(locale, "/e/daniel-birthday")}>
+                      <QrCode className="h-4 w-4" />
+                      QR
+                    </Link>
                   </div>
-                  <div className="mt-2 font-display text-3xl text-stone-950">3</div>
-                </div>
-                <div className="metric-card">
-                  <div className="text-xs uppercase tracking-[0.24em] text-stone-500">
-                    {isEnglish ? "Ready score" : "מדד מוכנות"}
-                  </div>
-                  <div className="mt-2 font-display text-3xl text-stone-950">82%</div>
                 </div>
               </div>
-
-              <div className="grid gap-3">
-                {copy.events.map((event) => (
-                  <div key={event.title} className="app-event-card">
-                    <div>
-                      <div className="font-display text-2xl text-stone-950">{event.title}</div>
-                      <div className="mt-2 text-sm text-stone-500">{event.date}</div>
-                      <div className="mt-2 text-sm text-amber-700">{event.mood}</div>
-                    </div>
-                    <div className="space-y-3 xl:text-left">
-                      <div className="status-pill">{event.attendance}</div>
-                      <div className="flex flex-wrap gap-2 xl:justify-end">
-                        <Link className="pill-action" href={route(locale, "/e/daniel-birthday")}>
-                          <Send className="h-4 w-4" />
-                          {isEnglish ? "Share again" : "לשלוח שוב"}
-                        </Link>
-                        <Link className="pill-action" href={route(locale, "/e/daniel-birthday")}>
-                          <QrCode className="h-4 w-4" />
-                          QR
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid gap-4">
-              <QuickStatus />
-
-              <Surface className="motion-panel">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <div className="section-kicker">
-                      {isEnglish ? "Active view" : "מבט פעיל"}
-                    </div>
-                    <div className="mt-2 text-lg font-semibold text-stone-950">
-                      {isEnglish ? "The app looks alive" : "האפליקציה נראית חיה"}
-                    </div>
-                  </div>
-                  <div className="motion-badge">Remotion</div>
-                </div>
-                <div className="mt-4">
-                  <RemotionPreview locale={locale} />
-                </div>
-              </Surface>
-            </div>
+            ))}
           </div>
         </Surface>
       </section>

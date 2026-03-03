@@ -38,8 +38,8 @@ export function AppShell({ locale, dir, nav, children }: AppShellProps) {
               </div>
               <div className="mt-1 text-xs text-stone-500 sm:text-sm">
                 {locale === "en"
-                  ? "Fast event planning, confirmations, and event-day flow"
-                  : "תכנון אירוע, אישורי הגעה וניהול יום האירוע במקום אחד"}
+                  ? "Events, confirmations, and event-day control"
+                  : "אירועים, אישורי הגעה וניהול יום האירוע"}
               </div>
             </div>
           </div>
