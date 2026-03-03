@@ -30,7 +30,7 @@ export function HomeScreen({ locale }: { locale: Locale }) {
         <Surface className="app-panel app-panel-primary">
           <div className="app-panel-head">
             <div>
-              <div className="app-kicker">{isEnglish ? "Home" : "בית"}</div>
+              <div className="app-kicker">{isEnglish ? "Events" : "אירועים"}</div>
               <h1 className="app-title">
                 {isEnglish ? "Your events" : "האירועים שלך"}
               </h1>
@@ -96,8 +96,8 @@ export function HomeScreen({ locale }: { locale: Locale }) {
               </div>
               <p className="next-task-copy">
                 {isEnglish
-                  ? "Guests still need a clean link. Send it once and stop managing confirmations in chat."
-                  : "האורחים עדיין צריכים לינק מסודר. שולחים פעם אחת ומפסיקים לנהל אישורי הגעה בתוך הוואטסאפ."}
+                  ? "Send once. Stop managing confirmations in chat."
+                  : "שולחים פעם אחת ומפסיקים לנהל אישורי הגעה בתוך הוואטסאפ."}
               </p>
               <div className="next-task-actions">
                 <Link className="app-cta app-cta-primary" href={route(locale, "/e/daniel-birthday")}>
@@ -121,20 +121,24 @@ export function HomeScreen({ locale }: { locale: Locale }) {
             <div className="compact-list">
               <div className="compact-row">
                 <UsersRound className="h-4 w-4 text-amber-700" />
-                <span>
-                  {isEnglish ? "Confirmed attendance" : "אישורי הגעה"}:
-                </span>
-                <strong>{primaryEvent.attendance}</strong>
+                <div className="compact-copy">
+                  <span>{isEnglish ? "Confirmed attendance" : "אישורי הגעה"}</span>
+                  <strong>{primaryEvent.attendance}</strong>
+                </div>
               </div>
               <div className="compact-row">
                 <ListChecks className="h-4 w-4 text-amber-700" />
-                <span>{isEnglish ? "Private checklist" : "צ'קליסט פנימי"}:</span>
-                <strong>{copy.checklist.length}</strong>
+                <div className="compact-copy">
+                  <span>{isEnglish ? "Private checklist" : "צ'קליסט פנימי"}</span>
+                  <strong>{copy.checklist.length}</strong>
+                </div>
               </div>
               <div className="compact-row">
                 <MapPinned className="h-4 w-4 text-amber-700" />
-                <span>{isEnglish ? "Place" : "מקום"}:</span>
-                <strong>{primaryEvent.title}</strong>
+                <div className="compact-copy">
+                  <span>{isEnglish ? "Current event" : "האירוע הנוכחי"}</span>
+                  <strong>{primaryEvent.title}</strong>
+                </div>
               </div>
             </div>
           </Surface>

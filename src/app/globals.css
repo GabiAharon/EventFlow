@@ -116,9 +116,9 @@ a {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  min-height: 3.4rem;
+  min-height: 3rem;
   border-radius: 1.1rem;
-  padding: 0.9rem 1rem;
+  padding: 0.8rem 0.95rem;
   font-weight: 700;
 }
 
@@ -350,7 +350,7 @@ a {
 .app-panel-head {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 1rem;
@@ -367,8 +367,8 @@ a {
 .app-title {
   margin-top: 0.45rem;
   font-family: var(--font-display), serif;
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  line-height: 1;
+  font-size: clamp(1.75rem, 4vw, 3.25rem);
+  line-height: 1.04;
   letter-spacing: -0.05em;
   color: #171717;
 }
@@ -386,17 +386,16 @@ a {
   display: grid;
   gap: 0.85rem;
   margin-bottom: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .stat-chip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  display: grid;
+  gap: 0.35rem;
   border: 1px solid rgba(52, 43, 33, 0.08);
   border-radius: 1.15rem;
   background: rgba(255, 255, 255, 0.82);
-  padding: 0.9rem 1rem;
+  padding: 0.8rem 0.9rem;
 }
 
 .stat-chip-label {
@@ -406,7 +405,7 @@ a {
 
 .stat-chip-value {
   font-family: var(--font-display), serif;
-  font-size: 1.65rem;
+  font-size: 1.4rem;
   line-height: 1;
   letter-spacing: -0.04em;
   color: #171717;
@@ -434,17 +433,16 @@ a {
 
 .event-tile-title {
   font-family: var(--font-display), serif;
-  font-size: 1.8rem;
+  font-size: 1.45rem;
   line-height: 1.05;
   color: #171717;
 }
 
 .event-tile-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
+  display: grid;
+  gap: 0.4rem;
   margin-top: 0.6rem;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   color: #78716c;
 }
 
@@ -466,7 +464,7 @@ a {
 
 .next-task-title {
   font-family: var(--font-display), serif;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   line-height: 1.08;
   letter-spacing: -0.04em;
   color: #171717;
@@ -480,9 +478,9 @@ a {
 }
 
 .next-task-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 0.65rem;
+  grid-template-columns: 1fr 1fr;
 }
 
 .compact-list {
@@ -492,7 +490,7 @@ a {
 
 .compact-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.65rem;
   border-radius: 1rem;
   background: rgba(255, 248, 240, 0.7);
@@ -501,9 +499,16 @@ a {
   color: #44403c;
 }
 
-.compact-row strong {
-  margin-inline-start: auto;
+.compact-copy {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.compact-copy strong {
   color: #171717;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .dashboard-hero-grid {
@@ -1076,8 +1081,8 @@ a {
 .pill-action {
   border: 1px solid rgba(41, 33, 24, 0.12);
   background: white;
-  padding: 0.7rem 1rem;
-  font-size: 0.9rem;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.84rem;
   font-weight: 600;
 }
 
@@ -1117,6 +1122,16 @@ a {
 }
 
 @media (min-width: 640px) {
+  .stats-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .next-task-actions {
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: none;
+  }
+
   .planner-form {
     grid-template-columns: 1fr auto;
   }
@@ -1142,6 +1157,12 @@ a {
   .event-tile {
     grid-template-columns: 1fr auto;
     align-items: center;
+  }
+
+  .event-tile-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
   }
 }
 
