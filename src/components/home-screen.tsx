@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import { AppShell, Surface } from "@/components/app-shell";
+import { OnboardingTour } from "@/components/onboarding-tour";
 import { type Locale, getCopy } from "@/lib/site-content";
 
 function route(locale: Locale, path: string) {
@@ -26,6 +27,7 @@ export function HomeScreen({ locale }: { locale: Locale }) {
 
   return (
     <AppShell locale={locale} dir={copy.dir} nav={copy.nav}>
+      <OnboardingTour locale={locale} />
       <section className="grid gap-4 xl:grid-cols-[1.2fr_0.8fr]">
         <Surface className="app-panel app-panel-primary">
           <div className="app-panel-head">
@@ -35,7 +37,11 @@ export function HomeScreen({ locale }: { locale: Locale }) {
                 {isEnglish ? "Your events" : "האירועים שלך"}
               </h1>
             </div>
-            <Link className="app-cta app-cta-primary" href={route(locale, "/create")}>
+            <Link
+              className="app-cta app-cta-primary"
+              data-tour-id="create-event"
+              href={route(locale, "/create")}
+            >
               <Plus className="h-4 w-4" />
               {isEnglish ? "New event" : "אירוע חדש"}
             </Link>
@@ -99,7 +105,7 @@ export function HomeScreen({ locale }: { locale: Locale }) {
                   ? "Send once. Stop managing confirmations in chat."
                   : "שולחים פעם אחת ומפסיקים לנהל אישורי הגעה בתוך הוואטסאפ."}
               </p>
-              <div className="next-task-actions">
+              <div className="next-task-actions" data-tour-id="share-event">
                 <Link className="app-cta app-cta-primary" href={route(locale, "/e/daniel-birthday")}>
                   <MessageCircleMore className="h-4 w-4" />
                   WhatsApp
@@ -147,7 +153,7 @@ export function HomeScreen({ locale }: { locale: Locale }) {
 
       <section className="grid gap-4 xl:grid-cols-[0.9fr_1.1fr]">
         <div className="grid gap-4">
-          <Surface className="app-panel">
+          <Surface className="app-panel" data-tour-id="private-checklist">
             <div className="app-panel-head">
               <div>
                 <div className="app-kicker">{isEnglish ? "Organizer only" : "למארגן בלבד"}</div>

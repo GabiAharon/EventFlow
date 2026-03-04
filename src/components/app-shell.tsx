@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, QrCode, ScanLine, Sparkles } from "lucide-react";
 
+import { EmailAccessButton } from "@/components/email-access-button";
 import { type Locale } from "@/lib/site-content";
 
 type AppShellProps = {
@@ -45,6 +46,7 @@ export function AppShell({ locale, dir, nav, children }: AppShellProps) {
           </div>
 
           <div className="nav-row">
+            <EmailAccessButton locale={locale} />
             <Link className="nav-pill nav-pill-cta" href={href(locale, "/create")}>
               {nav.create}
             </Link>
